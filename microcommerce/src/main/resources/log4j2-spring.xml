@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration>
+
+
+
+<Configuration monitorInterval="60">
+
+
+	<!-- =============================================== -->
+	<!-- (00.) Proprietes generales -->
+	<!-- =============================================== -->
+	<Properties>
+		<Property name="log-path">./logExecute</Property>
+	</Properties>
+
+
+	<!-- ======================================================================= -->
+	<!-- (01.) Appenders :                                                       -->
+	<!--   - (01.A.) Chaque Appender pointe sur le fichier qui lui est associe  -->
+	<!--   - (01.B.) Chaque Appender ecrit dans ce fichier                      -->
+	<!-- ======================================================================= -->
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</Console>
+		
+		<File name="Configuration-File-Appender"
+			fileName="${log-path}/Microcommerce-configuration.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+
+		<File name="Dao-File-Appender"
+			fileName="${log-path}/Microcommerce-dao.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+
+		<File name="Model-File-Appender"
+			fileName="${log-path}/Microcommerce-model.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+
+		<File name="Web-File-Appender"
+			fileName="${log-path}/Microcommerce-web.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+
+		<File name="SpringBoot-File-Appender"
+			fileName="${log-path}/Microcommerce-springBoot.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+		
+		<File name="SpringContext-File-Appender"
+			fileName="${log-path}/Microcommerce-springContext.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+
+	<!-- ========================================================================== -->
+	<!-- (02.) Loggers :                                                            -->
+	<!--   - (02.A.) Chaque Logger scanne le package qui lui est associe           -->
+	<!--   - (02.B.) Chaque Logger récupère les logs qu'il trouve dans les classes -->
+	<!-- ========================================================================== -->
+	<Loggers>
+		<Logger name="com.ecommerce.microcommerce.configuration" level="all" additivity="true">
+			<AppenderRef ref="Configuration-File-Appender" level="all" />
+		</Logger>
+
+		<Logger name="com.ecommerce.microcommerce.dao" level="all" additivity="true">
+			<AppenderRef ref="Dao-File-Appender" level="all" />
+		</Logger>
+
+		<Logger name="com.ecommerce.microcommerce.model" level="all" additivity="true">
+			<AppenderRef ref="Model-File-Appender" level="all" />
+		</Logger>
+
+		<Logger name="com.ecommerce.microcommerce.web" level="all" additivity="true">
+			<AppenderRef ref="Web-File-Appender" level="all" />
+		</Logger>
+
+		<Logger name="org.springframework.boot" level="info" additivity="true">
+			<AppenderRef ref="SpringBoot-File-Appender" level="all" />
+		</Logger>
+
+		<Logger name="org.springframework.context" level="info" additivity="true">
+			<AppenderRef ref="SpringContext-File-Appender" level="all" />
+		</Logger>
+
+		<Root>
+			<AppenderRef ref="Console-Appender" level="all" />
+		</Root>
+	</Loggers>
+
+</Configuration>

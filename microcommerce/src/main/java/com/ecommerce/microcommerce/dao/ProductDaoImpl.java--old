@@ -1,0 +1,42 @@
+package com.ecommerce.microcommerce.dao;
+
+import com.ecommerce.microcommerce.dao.IProductDao;
+import com.ecommerce.microcommerce.model.Product;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Repository
+public class ProductDaoImpl implements IProductDao {
+
+    public static List<Product> products = new ArrayList<Product>();
+
+    static {
+        products.add(new Product(1, new String("Ordinateur portable"), 350, 120));
+        products.add(new Product(2, new String("Aspirateur Robot"   ), 500, 200));
+        products.add(new Product(3, new String("Table de Ping Pong" ), 750, 400));
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return ProductDaoImpl.products;
+    }
+
+    @Override
+    public Product findById(int pId) {
+        for (Product product : products) {
+            if(product.getId() == pId){
+                return product;
+            }
+        }
+        return null;
+    }
+
+    //@SuppressWarnings("unchecked")
+	@Override
+    public Product save(Product pProduct) {
+        products.add(pProduct);
+        return pProduct;
+    }
+}
