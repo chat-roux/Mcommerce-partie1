@@ -1,0 +1,22 @@
+[
+	{
+		"nom": "Ordinateur portable",
+		"prix": 350,
+		"prixAchat": 120
+	},
+	{
+		"nom": "Aspirateur Robot",
+		"prix": 500,
+		"prixAchat": 200
+	},
+	{
+		"nom": "Table de Ping Pong",
+		"prix": 750,
+		"prixAchat": 400
+	},
+	{
+		"nom": "Seche-cheveux",
+		"prix": 0,
+		"prixAchat": 25
+	}
+]

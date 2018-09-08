@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Products",
+		"_postman_id": "c2872dde-ff48-385d-3dbb-44971fe348d0",
+		"description": "Liste de requêtes (sur les Produits)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calculer marge des produits",
+			"request": {
+				"url": "http://localhost:9090/AdminProduits",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Trier produits par nom (ordre ascendant)",
+			"request": {
+				"url": "http://localhost:9090/Produits/order/nom",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un produit dont le prix est zéro.",
+			"request": {
+				"url": "http://localhost:9090/Produits",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\r\n\t\t\"nom\": \"Seche-cheveux\",\r\n\t\t\"prix\": 0,\r\n\t\t\"prixAchat\": 25\r\n\t}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

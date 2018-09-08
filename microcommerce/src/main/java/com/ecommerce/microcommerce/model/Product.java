@@ -11,6 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
+/**
+ * <b>CET OBJET EST UNE ENTITE.</b><br/>
+ * <b>IL CONTIENT LES PROPRIETES PERSISTABLES D'UN PRODUIT</b><br/>
+ * <br/>
+ * @author 1603599
+ */
 //@JsonFilter("ProductFilter")
 @Entity
 public class Product {
@@ -23,31 +29,31 @@ public class Product {
 	@Transient
 	private static final Logger LOGGER = LoggerFactory.getLogger(Product.class);
 	
-	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
     @Length(min=3, max=20, message="Longueur non conforme aux exigences [Minimum : 3, Maximum : 20]")
     private String nom;
 
-    @Min(value=1)
-    private int prix;
-    private int prixAchat;
+    @Min(value=0, message="Valeur non conforme aux exigences [Minimum : 0.000001]")
+    private float prix;
+    private float prixAchat;
 
     
     /**
      * CONSTRUCTEUR SANS ARGUMENTS
      */
     public Product() {
+    	
 		LOGGER.info("CLASS : Product -- METHOD : CONSTRUCTEUR SANS ARGUMENTS -- BEGIN");
-		LOGGER.info("CLASS : Product -- METHOD : CONSTRUCTEUR SANS ARGUMENTS -- BEGIN");
+		LOGGER.info("CLASS : Product -- METHOD : CONSTRUCTEUR SANS ARGUMENTS -- END");
     }
 
     /**
      * CONSTRUCTEUR AVEC ARGUMENTS
      */
-    public Product(int pId, String pNom, int pPrix, int pPrixAchat) {
+    public Product(Long pId, String pNom, float pPrix, float pPrixAchat) {
     	
 		LOGGER.info("CLASS : Product -- METHOD : CONSTRUCTEUR AVEC ARGUMENTS -- BEGIN");
 		
@@ -60,16 +66,16 @@ public class Product {
     }
 
     
-    public int    getId()        { return this.id;        }
+    public Long   getId()        { return this.id;        }
     public String getNom()       { return this.nom;       }
-    public int    getPrix()      { return this.prix;      }
-    public int    getPrixAchat() { return this.prixAchat; }
+    public float  getPrix()      { return this.prix;      }
+    public float  getPrixAchat() { return this.prixAchat; }
 
     
-    public void setId       (int    pId       ) { this.id        = pId;        }
+    public void setId       (Long   pId       ) { this.id        = pId;        }
     public void setNom      (String pNom      ) { this.nom       = pNom;       }
-    public void setPrix     (int    pPrix     ) { this.prix      = pPrix;      }
-    public void setPrixAchat(int    pPrixAchat) { this.prixAchat = pPrixAchat; }
+    public void setPrix     (float  pPrix     ) { this.prix      = pPrix;      }
+    public void setPrixAchat(float  pPrixAchat) { this.prixAchat = pPrixAchat; }
 
     
     @Override

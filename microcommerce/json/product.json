@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"nom": "Ordinateur portable",
+		"prix": 350,
+		"prixAchat": 120
+	},
+	{
+		"id": 2,
+		"nom": "Aspirateur Robot",
+		"prix": 500,
+		"prixAchat": 200
+	},
+	{
+		"id": 3,
+		"nom": "Table de Ping Pong",
+		"prix": 750,
+		"prixAchat": 400
+	}
+]
